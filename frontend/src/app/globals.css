@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * QingXi 全局样式
+ * 深色主题，温暖点缀
+ */
+
+/* 基础样式 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* 打字机效果 */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: pre-wrap;
+  animation: typewriter 2s steps(40) forwards;
+}
+
+/* 淡入效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 呼吸效果 */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* 发光效果 */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+  }
+}
+
+.glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* 输入框聚焦效果 */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* 按钮悬停效果 */
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+/* 玻璃态效果 */
+.glass {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 渐变边框 */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* 加载动画 */
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: #f97316;
+  border-radius: 50%;
+  animation: loadingBounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loadingBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* 暗色模式下的表单元素 */
+input,
+textarea,
+select {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid #334155;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+/* 禁用状态 */
+input:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
